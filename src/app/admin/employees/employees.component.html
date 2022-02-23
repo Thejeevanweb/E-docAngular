@@ -1,0 +1,68 @@
+<div id="wrapper">
+    <app-header></app-header>
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <app-topbar></app-topbar>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Employees</h1>
+                <a class="btn btn-sm btn-success pull-right" routerLink="/admin/employee/0">+ Employees</a>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Birthdate</th>
+                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Mobileno</th>
+                                        <th>Joiningdate</th>
+                                        <th>Departmentname</th>
+                                        <th>Relievingdate</th>
+                                        <th>Phorocoded</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let employee of employees;let i = index;">
+                                        <td>
+                                            <a class="btn btn-sm btn-primary" routerLink="/admin/employee/{{ employee._id }}"><i class="fas fa-edit "></i></a>&nbsp;
+                                            <button (click)="delete(employee._id) " class="btn btn-sm btn-danger "><i class="fas fa-trash "></i></button>
+                                        </td>
+                                        <td>{{ (i + 1) }}</td>
+                                        <td>{{ employee.name }}</td>
+                                        <td>{{ employee.gender }}</td>
+                                        <td>{{ employee.birthdate }}</td>
+                                        <td>{{ employee.address }}</td>
+                                        <td>{{ employee.email }}</td>
+                                        <td>{{ employee.mobileno }}</td>
+                                        <td>{{ employee.joiningdate }}</td>
+                                        <td>{{ employee.departmentname }}</td>
+                                        <td>{{ employee.relievingdate }}</td>
+                                        <td>{{ employee.photocode }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
